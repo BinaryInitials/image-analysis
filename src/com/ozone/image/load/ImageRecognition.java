@@ -37,22 +37,22 @@ import javax.swing.JLabel;
 //		display(convertToImage(original0));
 //		display(convertToImage(original1));
 		
-		int windowSize = 20;
+//		int windowSize = 20;
 		
-		for(int i=0;i<windowSize;i++) {
-			for(int j=0;j<windowSize;j++) 
-				System.out.print(original0[i][j] + "  ");
-			System.out.println();
-		}
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		System.out.println();
-		for(int i=0;i<resized0.length;i++) {
-			for(int j=0;j<resized0[i].length;j++) 
-				System.out.print(resized0[i][j] + "  ");
-			System.out.println();
-		}
+//		for(int i=0;i<windowSize;i++) {
+//			for(int j=0;j<windowSize;j++) 
+//				System.out.print(original0[i][j] + "  ");
+//			System.out.println();
+//		}
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		System.out.println();
+//		for(int i=0;i<resized0.length;i++) {
+//			for(int j=0;j<resized0[i].length;j++) 
+//				System.out.print(resized0[i][j] + "  ");
+//			System.out.println();
+//		}
 //		for(int i=0;i<windowSize;i++) {
 //			for(int j=0;j<windowSize;j++) 
 //				System.out.print(resized1[i][j] + "\t");
@@ -68,7 +68,7 @@ import javax.swing.JLabel;
 		System.out.println("score=" + String.format("%.2f", score) + "%");
 		Date toc = new Date();
 		double elapsed = (toc.getTime() - tic.getTime())/1000.0;
-		System.out.println("Ellapsed time: " + String.format("%.2f", elapsed)+ " seconds.");
+//		System.out.println("Ellapsed time: " + String.format("%.2f", elapsed)+ " seconds.");
 	}
 	
 	public static int[][] gradient(int[][] m){
