@@ -15,17 +15,18 @@ import javax.swing.JLabel;
 
  public class ImageRecognition {
 	
-	public static final int SIZE =100;
+	public static final int SIZE =50;
 	 
 	public static void main(String[] args) {
 		Date tic = new Date();
-		String image1 = (args == null || args.length < 2) ? "raw-people/tadas1.jpg" : args[0];
-		String image2 = (args == null || args.length < 2) ? "raw-people/tadas2.jpg" : args[1];
-//		String image1 = (args == null || args.length < 2) ? "raw-people/olivier1.jpg" : args[0];
-//		String image2 = (args == null || args.length < 2) ? "raw-people/olivier4.jpg" : args[1];
+//		String image1 = (args == null || args.length < 2) ? "raw-people/tadas1.jpg" : args[0];
+//		String image2 = (args == null || args.length < 2) ? "raw-people/tadas2.jpg" : args[1];
+		String image1 = (args == null || args.length < 2) ? "raw-people/olivier1.jpg" : args[0];
+		String image2 = (args == null || args.length < 2) ? "raw-people/olivier4.jpg" : args[1];
 //		String image1 = (args == null || args.length < 2) ? "raw-people/test.jpg" : args[0];
 //		String image2 = (args == null || args.length < 2) ? "raw-people/download1.jpeg" : args[1];
 //		String image2 = (args == null || args.length < 2) ? "raw-people/download2.jpeg" : args[1];
+		
 		
 		int[][] original0 = convertToMatrix(read(image1));
 		int[][] original1 = convertToMatrix(read(image2));
@@ -36,17 +37,22 @@ import javax.swing.JLabel;
 //		display(convertToImage(original0));
 //		display(convertToImage(original1));
 		
-//		int windowSize = SIZE/2;
-//		
-//		for(int i=0;i<windowSize;i++) {
-//			for(int j=0;j<windowSize;j++) 
-//				System.out.print(resized0[i][j] + "\t");
-//			System.out.println();
-//		}
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
-//		System.out.println();
+		int windowSize = 20;
+		
+		for(int i=0;i<windowSize;i++) {
+			for(int j=0;j<windowSize;j++) 
+				System.out.print(original0[i][j] + "  ");
+			System.out.println();
+		}
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		System.out.println();
+		for(int i=0;i<resized0.length;i++) {
+			for(int j=0;j<resized0[i].length;j++) 
+				System.out.print(resized0[i][j] + "  ");
+			System.out.println();
+		}
 //		for(int i=0;i<windowSize;i++) {
 //			for(int j=0;j<windowSize;j++) 
 //				System.out.print(resized1[i][j] + "\t");
@@ -137,12 +143,6 @@ import javax.swing.JLabel;
 			e.printStackTrace();
 		}
 		return image;
-	}
-	
-	public enum Channel{
-		RED,
-		GREEN,
-		BLUE,
 	}
 	
 	public static int[][] convertToMatrix(BufferedImage image){

@@ -1,10 +1,7 @@
 #!/bin/bash
 
-if [[ $# -eq 0 ]] ; then
-    echo 'Usage: argument passed must be package.ExecutableClass'
-    exit 1
-fi
-
+mc="com.ozone.image.load.ImageRecognition"
+echo $mc
 directories=`ls`
 src="src"
 bin="bin"
@@ -23,7 +20,7 @@ if [[ " ${directories[@]} " =~ $libs ]]; then
 	fi
 
 	if [[ " ${directories[@]} " =~ $src ]]; then
-		mkdir bin && javac -cp $libraries_for_compiler -d bin $(find . -name "*.java") && echo "Class-Path: " > manifest.txt && for i in $libraries_for_manifest; do echo " libs/"$i" " >> manifest.txt ; done && echo "Main-Class: "$1 >> manifest.txt && cd bin && jar -cvfm ../runnable.jar ../manifest.txt *
+		mkdir bin && javac -cp $libraries_for_compiler -d bin $(find . -name "*.java") && echo "Class-Path: " > manifest.txt && for i in $libraries_for_manifest; do echo " libs/"$i" " >> manifest.txt ; done && echo "Main-Class: "$mc >> manifest.txt && cd bin && jar -cvfm ../runnable.jar ../manifest.txt *
 		echo "Build succeeded. To run, use: java -jar runnable.jar"
 	else
 		echo "build-script is not in a java project. Please move the script directly in a java project."
@@ -40,7 +37,7 @@ else
 fi
 
 if [[ " ${directories[@]} " =~ $src ]]; then
-	mkdir bin && javac -d bin $(find . -name "*.java") && cd bin && echo "Main-Class: "$1 > manifest.txt && jar -cvfm runnable.jar manifest.txt * && mv runnable.jar ../
+	mkdir bin && javac -d bin $(find . -name "*.java") && cd bin && echo "Main-Class: "$mc > manifest.txt && jar -cvfm runnable.jar manifest.txt * && mv runnable.jar ../
 	echo "Build succeeded. To run, use: java -jar runnable.jar"
 else
 	echo "build-script is not in a java project. Please move the script directly in a java project."
