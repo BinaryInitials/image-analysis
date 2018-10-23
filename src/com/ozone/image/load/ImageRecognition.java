@@ -5,7 +5,6 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Date;
 import java.util.HashMap;
 
 import javax.imageio.ImageIO;
@@ -18,7 +17,7 @@ import javax.swing.JLabel;
 	public static final int SIZE =50;
 	 
 	public static void main(String[] args) {
-		Date tic = new Date();
+//		Date tic = new Date();
 //		String image1 = (args == null || args.length < 2) ? "raw-people/tadas1.jpg" : args[0];
 //		String image2 = (args == null || args.length < 2) ? "raw-people/tadas2.jpg" : args[1];
 		String image1 = (args == null || args.length < 2) ? "raw-people/olivier1.jpg" : args[0];
@@ -66,8 +65,8 @@ import javax.swing.JLabel;
 
 		double score = compareImages(blur(resized0, kernelSize), blur(resized1, kernelSize));
 		System.out.println("score=" + String.format("%.2f", score) + "%");
-		Date toc = new Date();
-		double elapsed = (toc.getTime() - tic.getTime())/1000.0;
+//		Date toc = new Date();
+//		double elapsed = (toc.getTime() - tic.getTime())/1000.0;
 //		System.out.println("Ellapsed time: " + String.format("%.2f", elapsed)+ " seconds.");
 	}
 	
